@@ -1,0 +1,12 @@
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\DTO\TaskCompletionRequest.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\entities\Review.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\Application.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\delegate\PublishReviewDelegate.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\controller\TaskController.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\repository\ReviewRepository.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\services\BookService.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\entities\Book.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\repository\BookRepository.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\controller\BookController.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\delegate\CreateBookReviewDelegate.java
+C:\Users\Houssem\Desktop\BookReview\BookReview\src\main\java\com\example\workflow\delegate\ReviewBookDelegate.java

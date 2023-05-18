@@ -1,0 +1,14 @@
+com\example\workflow\delegate\Email.class
+com\example\workflow\repository\ReviewRepository.class
+com\example\workflow\controller\TaskController.class
+com\example\workflow\delegate\Email$1.class
+com\example\workflow\services\BookService.class
+com\example\workflow\repository\BookRepository.class
+com\example\workflow\DTO\TaskCompletionRequest.class
+com\example\workflow\delegate\CreateBookReviewDelegate.class
+com\example\workflow\delegate\ReviewBookDelegate.class
+com\example\workflow\entities\Book.class
+com\example\workflow\entities\Review.class
+com\example\workflow\controller\BookController.class
+com\example\workflow\Application.class
+com\example\workflow\delegate\PublishReviewDelegate.class

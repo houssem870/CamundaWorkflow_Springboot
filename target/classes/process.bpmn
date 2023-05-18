@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0">
+  <bpmn:process id="BookReview-process" isExecutable="true" camunda:versionTag="3">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="Activity_06flnxw" />
+    <bpmn:endEvent id="EndEvent_0x6ir2l">
+      <bpmn:incoming>Flow_15syz9y</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1nd3zsp" sourceRef="Activity_1iz028e" targetRef="Activity_0b7cfgq" />
+    <bpmn:sequenceFlow id="Flow_1p477m3" sourceRef="Activity_0b7cfgq" targetRef="Activity_1r3x50z" />
+    <bpmn:sequenceFlow id="Flow_094ohfk" sourceRef="Activity_1r3x50z" targetRef="Activity_1xe0fbm" />
+    <bpmn:serviceTask id="Activity_1iz028e" name="Create Book Review" camunda:delegateExpression="#{CreateBookReviewDelegate}">
+      <bpmn:incoming>Flow_171ja0c</bpmn:incoming>
+      <bpmn:outgoing>Flow_1nd3zsp</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0b7cfgq" name="Review Book" camunda:delegateExpression="#{ReviewBookDelegate}">
+      <bpmn:incoming>Flow_1nd3zsp</bpmn:incoming>
+      <bpmn:outgoing>Flow_1p477m3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1r3x50z" name="Publish Review" camunda:delegateExpression="#{PublishReviewDelegate}">
+      <bpmn:incoming>Flow_1p477m3</bpmn:incoming>
+      <bpmn:outgoing>Flow_094ohfk</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_0s1zuh8" name="Book published">
+      <bpmn:incoming>Flow_082bp7q</bpmn:incoming>
+      <bpmn:outgoing>Flow_15syz9y</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_171ja0c" sourceRef="Activity_06flnxw" targetRef="Activity_1iz028e" />
+    <bpmn:userTask id="Activity_06flnxw" name="choose book">
+      <bpmn:extensionElements />
+      <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
+      <bpmn:outgoing>Flow_171ja0c</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_15syz9y" sourceRef="Activity_0s1zuh8" targetRef="EndEvent_0x6ir2l" />
+    <bpmn:sequenceFlow id="Flow_082bp7q" sourceRef="Activity_1xe0fbm" targetRef="Activity_0s1zuh8" />
+    <bpmn:serviceTask id="Activity_1xe0fbm" name="notifyAuthor" camunda:class="com.example.workflow.delegate.Email">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_094ohfk</bpmn:incoming>
+      <bpmn:outgoing>Flow_082bp7q</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="BookReview-process">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="112" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ay874r_di" bpmnElement="Activity_1iz028e">
+        <dc:Bounds x="390" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1bdyuu7_di" bpmnElement="Activity_0b7cfgq">
+        <dc:Bounds x="580" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xpdk5w_di" bpmnElement="Activity_1r3x50z">
+        <dc:Bounds x="770" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wu00lv_di" bpmnElement="Activity_06flnxw">
+        <dc:Bounds x="230" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
+        <dc:Bounds x="1642" y="112" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_17829qn_di" bpmnElement="Activity_0s1zuh8">
+        <dc:Bounds x="1310" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1to28s1_di" bpmnElement="Activity_1xe0fbm">
+        <dc:Bounds x="1070" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
+        <di:waypoint x="188" y="130" />
+        <di:waypoint x="230" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nd3zsp_di" bpmnElement="Flow_1nd3zsp">
+        <di:waypoint x="490" y="130" />
+        <di:waypoint x="580" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1p477m3_di" bpmnElement="Flow_1p477m3">
+        <di:waypoint x="680" y="130" />
+        <di:waypoint x="770" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_094ohfk_di" bpmnElement="Flow_094ohfk">
+        <di:waypoint x="870" y="130" />
+        <di:waypoint x="1070" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_171ja0c_di" bpmnElement="Flow_171ja0c">
+        <di:waypoint x="330" y="130" />
+        <di:waypoint x="390" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15syz9y_di" bpmnElement="Flow_15syz9y">
+        <di:waypoint x="1410" y="130" />
+        <di:waypoint x="1642" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_082bp7q_di" bpmnElement="Flow_082bp7q">
+        <di:waypoint x="1170" y="130" />
+        <di:waypoint x="1310" y="130" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,30 @@
+camunda.bpm.admin-user:
+  id: demo
+  password: demo
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cammunda
+    username: postgres
+    password: Admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+spring.jpa:
+  hibernate.ddl-auto: update
+  show-sql: true
+  #mail config
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: cammundac@gmail.com
+    password: ycskqwnsqvfaqayi
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
