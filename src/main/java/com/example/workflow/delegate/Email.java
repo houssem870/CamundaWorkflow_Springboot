@@ -35,7 +35,7 @@ public class Email implements JavaDelegate{
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        String recipient = "Houssem.Abassi@hydatis.com";
+        String recipient = "";
         String subject = "Confirmation";
         String text = "Welcome to Camunda";
 
